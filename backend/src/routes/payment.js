@@ -11,6 +11,12 @@ const {
 
 paymentRouter.post("/payment/create", userAuth, async (req, res) => {
   try {
+    if (!razorpayInstance) {
+      return res.status(503).json({
+        msg: "Payment service is not configured. Please contact administrator.",
+      });
+    }
+
     const { membershipType } = req.body;
     const { firstName, lastName, emailId } = req.user;
 
@@ -57,7 +63,7 @@ paymentRouter.post("/payment/webhook", async (req, res) => {
     const isWebhookValid = validateWebhookSignature(
       JSON.stringify(req.body),
       webhookSignature,
-      process.env.RAZORPAY_WEBHOOK_SECRET
+      process.env.RAZORPAY_WEBHOOK_SECRET,
     );
 
     if (!isWebhookValid) {
