@@ -2,9 +2,17 @@
 
 A Tinder-like application for developers to connect and collaborate.
 
+## 🌐 Live Demo
+
+- **Frontend**: [https://devtinder-frontend1.onrender.com](https://devtinder-frontend1.onrender.com)
+- **Backend API**: [https://devtinder-db0t.onrender.com](https://devtinder-db0t.onrender.com)
+
+> Note: Free tier may take 30-50 seconds to wake up on first request.
+
 ## 🎯 Project Status
 
 ✅ **Fully Functional** - Ready for interviews and demonstrations!
+✅ **Deployed on Render** - Live and accessible
 
 ### Working Features
 
@@ -227,7 +235,23 @@ This project demonstrates:
 - **Database Models**: 4 (User, ConnectionRequest, Payment, Chat)
 - **React Components**: 12+
 - **Redux Slices**: 4
-- **Git Commits**: 14 meaningful commits
+- **Git Commits**: 14+ meaningful commits
+- **Deployment**: Render (Production-ready)
+
+## 🎓 Learning Outcomes
+
+This project demonstrates:
+
+- ✅ Full-stack MERN development
+- ✅ RESTful API design
+- ✅ JWT authentication & security
+- ✅ Real-time features with WebSockets
+- ✅ State management with Redux
+- ✅ Database design & relationships
+- ✅ Payment gateway integration
+- ✅ Production deployment & DevOps
+- ✅ Cross-origin cookie authentication
+- ✅ Professional Git workflow
 
 ## 👨‍💻 Author
 
