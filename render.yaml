@@ -9,9 +9,10 @@ services:
     rootDir: backend
     buildCommand: npm install
     startCommand: npm start
+    healthCheckPath: /health
     envVars:
       - key: PORT
-        value: 7777
+        value: 10000
       - key: DB_CONNECTION_SECRET
         sync: false
       - key: JWT_SECRET
@@ -28,21 +29,18 @@ services:
         sync: false
       - key: NODE_ENV
         value: production
+      - key: FRONTEND_URL
+        sync: false
 
-  # Frontend Service
-  - type: web
+  # Frontend Service (Static Site)
+  - type: static
     name: devtinder-frontend
-    runtime: node
     region: oregon
     plan: free
     branch: main
     rootDir: frontend
     buildCommand: npm install && npm run build
-    startCommand: npm start
+    staticPublishPath: ./dist
     envVars:
-      - key: NODE_ENV
-        value: production
       - key: VITE_API_URL
         sync: false
-      - key: PORT
-        value: 3000

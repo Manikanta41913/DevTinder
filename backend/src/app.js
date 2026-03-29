@@ -30,6 +30,11 @@ const paymentRouter = require("./routes/payment");
 const initializeSocket = require("./utils/socket");
 const chatRouter = require("./routes/chat");
 
+// Health check endpoint for Render
+app.get("/health", (req, res) => {
+  res.status(200).json({ status: "ok", message: "Server is running" });
+});
+
 app.use("/", authRouter);
 app.use("/", profileRouter);
 app.use("/", requestRouter);
@@ -43,8 +48,9 @@ initializeSocket(server);
 connectDB()
   .then(() => {
     console.log("Database connection established...");
-    server.listen(process.env.PORT, () => {
-      console.log("Server is successfully listening on port 7777...");
+    const PORT = process.env.PORT || 7777;
+    server.listen(PORT, "0.0.0.0", () => {
+      console.log(`Server is successfully listening on port ${PORT}...`);
     });
   })
   .catch((err) => {
