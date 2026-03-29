@@ -1,23 +1,27 @@
 {
-  "name": "devtinder",
+  "name": "devtinder-fullstack",
   "version": "1.0.0",
-  "description": "tinder for frds",
-  "main": "src/app.js",
+  "description": "tinder for devs - Full Stack Application",
+  "main": "backend/src/app.js",
   "scripts": {
-    "start": "node src/app.js",
-    "dev": "nodemon src/app.js",
-    "test": "echo \"Error: no test specified\" && exit 1"
+    "start": "cd backend && npm start",
+    "dev": "cd backend && npm run dev",
+    "client": "cd frontend && npm run dev",
+    "dev:all": "concurrently \"npm run dev\" \"npm run client\"",
+    "install:backend": "cd backend && npm install",
+    "install:frontend": "cd frontend && npm install",
+    "install:all": "npm run install:backend && npm run install:frontend",
+    "build:frontend": "cd frontend && npm run build"
   },
   "keywords": [
     "node.js",
-    "javascript"
+    "javascript",
+    "react",
+    "fullstack"
   ],
   "author": "Manikanta",
   "license": "ISC",
-  "dependencies": {
-    "express": "^5.2.1"
-  },
   "devDependencies": {
-    "nodemon": "^3.1.14"
+    "concurrently": "^8.2.2"
   }
 }
